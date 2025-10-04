@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Polls</title>
+  </head>
+  <body>
+    <h1>Hello world.</h1>
+
+    <form id="poll-form" action="" method="post">
+      {% csrf_token %}
+      <fieldset>
+        <legend>Is django cool?</legend>
+
+        <label>
+          <input type="radio" name="is_cool" value="yes" />
+          Yes
+        </label>
+
+        <label>
+          <input type="radio" name="is_cool" value="no" />
+          No
+        </label>
+      </fieldset>
+
+      <!-- <button type="submit">Submit</button> -->
+    </form>
+
+    <div
+      id="result"
+      aria-live="polite"
+      style="margin-top: 1rem; font-weight: 600"
+    ></div>
+
+    <script>
+      (function () {
+        const form = document.getElementById("poll-form");
+        const result = document.getElementById("result");
+
+        function showMessage(choice) {
+          if (!choice) {
+            result.textContent = "";
+            return;
+          }
+          if (choice === "yes") {
+            result.textContent = "That's great";
+          } else if (choice === "no") {
+            result.textContent = "That's sad";
+          }
+        }
+
+        // show message immediately when a radio changes
+        form.addEventListener("change", function (e) {
+          if (e.target && e.target.name === "is_cool") {
+            showMessage(e.target.value);
+          }
+        });
+
+        // prevent actual submission (no server-side handling yet) and show message
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const checked = form.querySelector('input[name="is_cool"]:checked');
+          if (!checked) {
+            result.textContent = "Please pick Yes or No";
+            return;
+          }
+          showMessage(checked.value);
+        });
+      })();
+    </script>
+  </body>
+</html>
