@@ -1,73 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Polls</title>
-  </head>
-  <body>
-    <h1>Hello world.</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Polls Index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <form id="poll-form" action="" method="post">
-      {% csrf_token %}
-      <fieldset>
-        <legend>Is django cool?</legend>
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
 
-        <label>
-          <input type="radio" name="is_cool" value="yes" />
-          Yes
-        </label>
+  <h1 class="mb-4">Polls</h1>
 
-        <label>
-          <input type="radio" name="is_cool" value="no" />
-          No
-        </label>
-      </fieldset>
+  {% if latest_question_list %}
+    <div class="list-group">
+      {% for question in latest_question_list %}
+        <a href="{% url 'polls:detail' question.id %}" 
+           class="list-group-item list-group-item-action">
+          {{ question.question_text }}
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-warning">No polls are available.</div>
+  {% endif %}
 
-      <!-- <button type="submit">Submit</button> -->
-    </form>
-
-    <div
-      id="result"
-      aria-live="polite"
-      style="margin-top: 1rem; font-weight: 600"
-    ></div>
-
-    <script>
-      (function () {
-        const form = document.getElementById("poll-form");
-        const result = document.getElementById("result");
-
-        function showMessage(choice) {
-          if (!choice) {
-            result.textContent = "";
-            return;
-          }
-          if (choice === "yes") {
-            result.textContent = "That's great";
-          } else if (choice === "no") {
-            result.textContent = "That's sad";
-          }
-        }
-
-        // show message immediately when a radio changes
-        form.addEventListener("change", function (e) {
-          if (e.target && e.target.name === "is_cool") {
-            showMessage(e.target.value);
-          }
-        });
-
-        // prevent actual submission (no server-side handling yet) and show message
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const checked = form.querySelector('input[name="is_cool"]:checked');
-          if (!checked) {
-            result.textContent = "Please pick Yes or No";
-            return;
-          }
-          showMessage(checked.value);
-        });
-      })();
-    </script>
-  </body>
+</body>
 </html>
