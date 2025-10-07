@@ -1,6 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .models import Question, Choice
 
 
 def index(request):
-    # render a simple page with a single-select question
-    return render(request, 'polls/index.html')
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    return render(request, 'polls/index.html', {'latest_question_list': latest_question_list})
+
+
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+
+
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
+
+
+def vote(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    try:
+        choice_id = request.POST['choice']
+        selected_choice = question.choice_set.get(pk=choice_id)
+    except Exception:
+        # Re-render the detail template with an error message
+        return render(request, 'polls/detail.html', {
+            'question': question,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
