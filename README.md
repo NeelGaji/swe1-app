@@ -6,6 +6,7 @@
 2. Deployed URL : http://django-env.eba-uhg6a3fp.us-west-2.elasticbeanstalk.com/polls/
 - - - - - 
 3. new UI Deployed_URL : http://swe-env.eba-pfm3vzde.us-east-1.elasticbeanstalk.com/polls/
+4. latest : http://swe1-app2.eba-w2m2abde.us-east-1.elasticbeanstalk.com/polls/
 
 # Project Badges
 
