@@ -5,3 +5,7 @@
 !.elasticbeanstalk/*.global.yml
 
 .env
+
+# Ignore virtual environment
+eb-virt/
+*.egg-info/

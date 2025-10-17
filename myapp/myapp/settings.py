@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # add the polls app so Django loads templates and app configs from it
     "polls",
+    "polls.apps.PollsConfig",
 ]
 
 MIDDLEWARE = [
