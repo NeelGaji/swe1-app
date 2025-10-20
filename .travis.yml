@@ -17,7 +17,7 @@ before_script:
   - flake8 myapp/
 
 script:
-  - coverage run manage.py test
+  - cd myapp && python -m coverage run manage.py test
 
 after_success:
   - coveralls
