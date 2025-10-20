@@ -15,6 +15,8 @@ install:
 before_script:
   - black --check myapp/
   - flake8 myapp/
+  - echo "AWS_ACCESS_KEY_ID is set: $([ -n "$AWS_ACCESS_KEY_ID" ] && echo "YES" || echo "NO")"
+  - echo "AWS_SECRET_ACCESS_KEY is set: $([ -n "$AWS_SECRET_ACCESS_KEY" ] && echo "YES" || echo "NO")"
 
 script:
   - cd myapp && python -m coverage run manage.py test
@@ -30,5 +32,6 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-1-386104178815"
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
+  zip_file: "myapp.zip"
   on:
     branch: main
