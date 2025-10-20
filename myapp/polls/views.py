@@ -1,7 +1,7 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Question, Choice
+from .models import Question
 
 
 def index(request):

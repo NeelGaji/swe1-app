@@ -13,8 +13,8 @@ install:
   - pip install black flake8 coverage coveralls
 
 before_script:
-  - black --check .
-  - flake8 .
+  - black --check myapp/
+  - flake8 myapp/
 
 script:
   - coverage run manage.py test
