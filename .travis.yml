@@ -15,8 +15,9 @@ install:
 before_script:
   - black --check myapp/
   - flake8 myapp/
-  - echo "AWS_ACCESS_KEY_ID is set: $([ -n "$AWS_ACCESS_KEY_ID" ] && echo "YES" || echo "NO")"
-  - echo "AWS_SECRET_ACCESS_KEY is set: $([ -n "$AWS_SECRET_ACCESS_KEY" ] && echo "YES" || echo "NO")"
+  - echo "Checking AWS environment variables..."
+  - test -n "$AWS_ACCESS_KEY_ID" && echo "AWS_ACCESS_KEY_ID: SET" || echo "AWS_ACCESS_KEY_ID: NOT SET"
+  - test -n "$AWS_SECRET_ACCESS_KEY" && echo "AWS_SECRET_ACCESS_KEY: SET" || echo "AWS_SECRET_ACCESS_KEY: NOT SET"
 
 script:
   - cd myapp && python -m coverage run manage.py test
