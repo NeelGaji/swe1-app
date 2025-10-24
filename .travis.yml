@@ -30,7 +30,7 @@ deploy:
   region: "us-east-1"
   app: "swe1-app2"
   env: "swe1-app2"
-  bucket_name: "elasticbeanstalk-us-east-1-386104178815"
+  bucket_name: "elasticbeanstalk-us-east-1-792302462014" 
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   on:
