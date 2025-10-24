@@ -10,6 +10,12 @@
 
 # Project Badges
 
-[![Build Status](https://travis-ci.com/NeelGaji/swe1-app.svg?branch=main)](https://travis-ci.com/NeelGaji/swe1-app)
+[![Build Status](https://travis-ci.com/NeelGaji/swe1-app.svg?branch=main)](https://app.travis-ci.com/github/NeelGaji/swe1-app?serverType=git)
 [![Coverage Status](https://coveralls.io/repos/github/NeelGaji/swe1-app/badge.svg?branch=main)](https://coveralls.io/github/NeelGaji/swe1-app?branch=main)
+
+## Link
+- [Live Application](http://swe1-app2.eba-w2m2abde.us-east-1.elasticbeanstalk.com/polls/)
+- [Travis CI Dashboard](https://travis-ci.com/NeelGaji/swe1-app)
+- [Coverage Report](https://coveralls.io/github/NeelGaji/swe1-app)
+- [AWS Console](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1)
 
