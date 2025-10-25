@@ -16,7 +16,6 @@
 
 ## Link
 - [Live Application](http://swe1-app2.eba-w2m2abde.us-east-1.elasticbeanstalk.com/polls/)
-- [Travis CI Dashboard](https://travis-ci.com/NeelGaji/swe1-app)
+- [Travis CI Dashboard](https://app.travis-ci.com/github/NeelGaji/swe1-app/builds/276653554?serverType=git)
 - [Coverage Report](https://coveralls.io/github/NeelGaji/swe1-app)
-- [AWS Console](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1)
 
