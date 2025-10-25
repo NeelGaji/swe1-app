@@ -12,7 +12,7 @@
 
 [![Build Status](https://app.travis-ci.com/NeelGaji/swe1-app.svg?branch=main)](https://app.travis-ci.com/NeelGaji/swe1-app)
 [![Coverage Status](https://coveralls.io/repos/github/NeelGaji/swe1-app/badge.svg?branch=main)](https://coveralls.io/github/NeelGaji/swe1-app?branch=main)
-[![Coverage Status](https://img.shields.io/coveralls/github/NeelGaji/swe1-app/main)](https://coveralls.io/github/NeelGaji/swe1-app?branch=main)
+[![Coverage Status](https://img.shields.io/coveralls/github/NeelGaji/swe1-app/main)](https://coveralls.io/github/NeelGaji/swe1-app)
 
 ## Link
 - [Live Application](http://swe1-app2.eba-w2m2abde.us-east-1.elasticbeanstalk.com/polls/)
